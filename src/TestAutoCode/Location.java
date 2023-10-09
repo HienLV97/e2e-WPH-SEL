@@ -22,17 +22,31 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 //    }
 //}
 //
+class LoginPage {
+    private WebDriver driver;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+    public WebElement getPlaceholder(String value) {
+//        String xpathExpression = "//input[contains(@placeholder, '" + value + "')]";
+        return driver.findElement(By.xpath("//input[contains(@placeholder, '" + value + "')]"));
+    }
+//    public WebElement getBtn(String value) {
+//        String xpathExpression = "//input[contains(@placeholder, '" + value + "')]";
+//        return driver.findElement(By.xpath(xpathExpression));
+//    }
+}
 
 public class Location {
-
+    static WebDriver driver = new ChromeDriver();
     public static void main(String[] args) {
-        WebDriver driver = new ChromeDriver();
+        LoginPage loginPage = new LoginPage(driver);
         driver.navigate().to(Routers.SIGN_IN);
-//        input.textbox()
-        WebElement element = driver.findElement(By.xpath("//input[contains(@placeholder, 'Password')]"));
-        element.sendKeys("abcgmail.com");
-
-//        WebElement button = driver.findElement(By.xpath("//input[@name='btnLogin']"));
-//        button.click();
+        WebElement textboxEmail = loginPage.getPlaceholder("Email");
+        textboxEmail.sendKeys("abc@gmail.com");
+        WebElement textboxPassword = loginPage.getPlaceholder("Password");
+        textboxPassword.sendKeys("abc@gmail.com");
+        textboxEmail.clear();
     }
 }
