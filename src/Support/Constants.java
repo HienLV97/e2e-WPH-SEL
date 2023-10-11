@@ -1,6 +1,28 @@
 package Support;
 
-public class Constants {
-    public static final String pathChromeDriver = "E:\\chromedriver\\chromedriver.exe";
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+public class Constants {
+    private WebDriver driver;
+
+    public Constants(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public String emailAccount = "t1@g.c";
+    public String passAccount = "iamafriend";
+
+    public WebElement getPlaceholder(String value) {
+        return driver.findElement(By.xpath("//input[contains(@placeholder, '" + value + "')]"));
+    }
+
+    public WebElement getBtn(String value) {
+        return driver.findElement(By.xpath("//*[contains(text(), '" + value + "')]"));
+    }
+    public WebElement getText(String value) {
+//        return driver.findElement(By.xpath("//*[contains(text(), '" + value + "')]"));
+        return driver.findElement(By.xpath("//*[contains(text(), '" + value + "')]"));
+    }
 }
