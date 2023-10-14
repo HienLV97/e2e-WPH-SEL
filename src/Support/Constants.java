@@ -19,7 +19,8 @@ public class Constants {
     }
 
     public WebElement getBtn(String value) {
-        return driver.findElement(By.xpath("//*[contains(text(), '" + value + "')]"));
+        return driver.findElement(By.xpath("//button[contains(text(), '" + value + "')]"));
+//                                                          button[contains(text(),'Login')]
     }
     public WebElement getText(String value) {
 //        return driver.findElement(By.xpath("//*[contains(text(), '" + value + "')]"));

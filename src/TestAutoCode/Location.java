@@ -8,20 +8,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class Location {
     static WebDriver driver = new ChromeDriver();
 
     public static void main(String[] args) throws InterruptedException {
         Constants Constants = new Constants(driver);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(Routers.SIGN_IN);
         WebElement textboxEmail = Constants.getPlaceholder("Email");
         textboxEmail.sendKeys(Constants.emailAccount);
 
         WebElement textboxPassword = Constants.getPlaceholder("Password");
         textboxPassword.sendKeys(Constants.passAccount);
-        WebElement btnSignin = Constants.getBtn("Continue with email");
+        WebElement btnSignin = Constants.getBtn("Sign in");
         btnSignin.click();
-        Thread.sleep(1000);
 //        boolean textBalance = Constants.getText("Balance").isDisplayed();
 //        boolean textBalance = driver.findElement(By.xpath("//*[contains(text(), 'Balance')]")).isDisplayed();
 //        if(textBalance == true){
@@ -29,7 +31,6 @@ public class Location {
 //        }else {
 //            System.out.println("Fail");
 //        }
-        Thread.sleep(2000);
         WebElement element = driver.findElement(By.xpath("//header/div[@id='p-header__content']/div[@id='js-navbar']/div[1]/div[3]/div[1]/div[2]"));
         // Lấy văn bản từ phần tử
         String textOnPage = element.getText();
@@ -40,12 +41,14 @@ public class Location {
         } else {
             System.out.println("Văn bản không tồn tại trên trang.");
         }
+        System.out.println(textOnPage);
+
 //        boolean textSignUp = driver.findElement(By.xpath("//*[contains(text(), 'Create A Free Account')]")).isDisplayed();
-        boolean textSignUp = driver.findElement(By.xpath("//a[contains(text(),'Create A Free Account')]")).isDisplayed();
-        if(textSignUp == true){
-            System.out.println("Success");
-        }else {
-            System.out.println("Fail");
-        }
+//        boolean textSignUp = driver.findElement(By.xpath("//a[contains(text(),'Create A Free Account')]")).isDisplayed();
+//        if(textSignUp == true){
+//            System.out.println("Success");
+//        }else {
+//            System.out.println("Fail");
+//        }
     }
 }

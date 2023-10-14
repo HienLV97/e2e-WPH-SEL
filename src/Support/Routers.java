@@ -1,7 +1,7 @@
 package Support;
 
 public class Routers {
-    public static final String BaseURL = "https://writersperhour.dev";
+    public static final String BaseURL = "https://ibhelper.dev";
     public static final String GUI = BaseURL+"/gui";
     public static final String HOME = BaseURL+"/";
     public static final String BLOG = BaseURL+"/blog";
@@ -25,8 +25,7 @@ public class Routers {
     public static final String POLICY_ACCEPTABLE = BaseURL+"/legal/acceptable";
     public static final String TERMS_AND_CONDITIONS = BaseURL+"/legal/terms";
     public static final String FAQ = BaseURL+"/faq";
-    public static final String ORDER = BaseURL+"/order-legacy";
-    public static final String NEW_ORDER = BaseURL+"/order";
+    public static final String ORDER = BaseURL+"/order";
     public static final String ORDERS = BaseURL+"/orders";
     public static final String ORDERS_ACTIVE = BaseURL+"/orders/active";
     public static final String ORDERS_UNPAID = BaseURL+"/orders/unpaid";
