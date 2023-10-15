@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ThucHanh_WebDriver {
@@ -22,8 +23,10 @@ public class ThucHanh_WebDriver {
         textboxPassword.sendKeys("admin123");
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
-
+        driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a")).click();
+//        driver.findElement(By.xpath("//@span[contains(text(), 'Admin')]")).click();
+//
+        List<WebElement> thList = driver.findElements(By.xpath("//th"));
 
     }
 }
