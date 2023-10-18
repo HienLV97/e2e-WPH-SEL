@@ -44,7 +44,7 @@ public class TH2 {
     public void createDriver() {
 //        WebDriverManager.chromedriver().setup();
         driver = new FirefoxDriver();
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
