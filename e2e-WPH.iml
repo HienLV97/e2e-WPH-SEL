@@ -457,5 +457,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="testng-7.8.0" level="project" />
+    <orderEntry type="library" name="testng" level="project" />
   </component>
 </module>
