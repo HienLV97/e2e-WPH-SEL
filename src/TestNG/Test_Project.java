@@ -20,6 +20,7 @@ public class Test_Project {
     public void beforeTest() {
         driver = new ChromeDriver();
 //        driver.manage().window().maximize();
+        driver.navigate().to("https://ibhelper.dev/testimonials");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }

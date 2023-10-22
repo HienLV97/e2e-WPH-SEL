@@ -52,7 +52,7 @@ public class TH2 {
     @Test
     public void testAnhTesterBlog() throws InterruptedException {
         driver.get("https://anhtester.com");
-        driver.findElement(By.xpath("//a[normalize-space()='blog']")).click();
+        driver.findElement(By.xpath("//a[normalize-space()='blog ']")).click();
         Thread.sleep(2000);
     }
 
