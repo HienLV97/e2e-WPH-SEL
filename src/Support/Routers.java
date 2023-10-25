@@ -1,7 +1,9 @@
 package Support;
 
 public class Routers {
-    public static final String BaseURL = "https://ibhelper.dev";
+    public static final String BaseURL = "https://writersperhour.dev/";
+//    public static final String BaseURL = "https://ibhelper.dev";
+
 //    public static final String BaseURL = "https://ibhelper.com";
     public static final String GUI = BaseURL+"/gui";
     public static final String HOME = BaseURL+"/";
@@ -41,5 +43,51 @@ public class Routers {
     public static final String SETTINGS_AVATAR = BaseURL+"/settings/avatar";
     public static final String SETTINGS_PROFILE = BaseURL+"/settings/profile";
     public static final String FORGOT_PASSWORD = BaseURL+"/password/request";
+    public  String[] serviceLink = {
+            "buy-persuasive-essay",
+            "ib-internal-assessment",
+            "paper-editing-service",
+            "write-my-paper",
+            "do-my-powerpoint",
+            "write-my-thesis",
+            "buy-college-papers",
+            "analysis-papers",
+            "phd-papers",
+            "buy-personal-statement",
+            "write-my-speech",
+            "buy-research-proposal",
+            "write-my-book-report",
+            "write-my-lab-report",
+            "do-my-research-paper",
+            "write-my-discussion-post-for-me",
+            "write-my-annotated-bibliography",
+            "argumentative-essay-writer",
+            "dissertation-writer",
+            "extended-essay-writer",
+            "fast-essay-writer",
+            "write-my-essay-please",
+            "homework-writers",
+            "business-plan-writers",
+            "creative-writers",
+            "mba-essay-writers",
+            "capstone-project-writers",
+            "research-paper-writers",
+            "urgent-essay-writing-service",
+            "write-my-assignment",
+            "write-my-literature-review",
+            "tok_essay",
+            "psychology-papers",
+            "do-my-coursework",
+            "biology-papers",
+            "philosophy-papers",
+            "do-my-case-study",
+            "do-my-math-problems",
+            "university-essays",
+            "write-my-scholarship-essay",
+            "buy-non-plagiarized-essay",
+            "do-my-accounting-assignment",
+            "case-brief-writing-service",
+            "marketing-plan-writing-service"
+    };
 }
 
