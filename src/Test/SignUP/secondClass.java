@@ -1,4 +1,4 @@
-package Test.seconPackage;
+package Test.SignUP;
 
 public class secondClass {
 }

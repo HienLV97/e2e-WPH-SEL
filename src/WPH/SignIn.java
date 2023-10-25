@@ -26,7 +26,7 @@ public class SignIn {
         System.out.println("a'");
     }
     @Test (description= "Print the second test method")
-    public void nevigation(){
+    public void nevigation1(){
         driver.navigate().to(Routers.HOME);
         WebElement signInBtn = Constants.getBtn("Sign in");
         signInBtn.click();

@@ -11,7 +11,7 @@ public class Constants {
         this.driver = driver;
     }
 
-    public String emailAccount = "t1@g.c";
+    public String emailAccount = "kamoratest1@g.c";
     public String passAccount = "iamafriend";
 
     public WebElement getPlaceholder(String value) {
@@ -19,7 +19,7 @@ public class Constants {
     }
 
     public WebElement getBtn(String value) {
-        return driver.findElement(By.xpath("//button[contains(text(), '" + value + "')]"));
+        return driver.findElement(By.xpath("//*/button[contains(text(), '" + value + "')]"));
 //                                                          button[contains(text(),'Login')]
     }
     public WebElement getText(String value) {
