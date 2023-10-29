@@ -14,7 +14,7 @@ public class Location {
     static WebDriver driver = new ChromeDriver();
 
     public static void main(String[] args) throws InterruptedException {
-        Constants Constants = new Constants(driver);
+        Constants Constants = new Constants();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(Routers.SIGN_IN);
         WebElement textboxEmail = Constants.getPlaceholder("Email");

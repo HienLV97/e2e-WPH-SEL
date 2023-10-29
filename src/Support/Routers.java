@@ -2,9 +2,10 @@ package Support;
 
 public class Routers {
 //    public static final String BaseURL = "https://writersperhour.dev";
+    public static  String BaseURL = "https://writersperhour.com";
 //    public static final String BaseURL = "https://ibhelper.dev";
 
-        public static final String BaseURL = "https://ibhelper.com";
+//        public static final String BaseURL = "https://ibhelper.com";
     public static final String GUI = BaseURL + "/gui";
     public static final String HOME = BaseURL + "/";
     public static final String BLOG = BaseURL + "/blog";
@@ -47,7 +48,7 @@ public class Routers {
             "/buy-persuasive-essay",
             "/ib-internal-assessment",
             "/paper-editing-service",
-            "/write-my-paper",
+            "/write-my-paper1111",
             "/do-my-powerpoint",
             "/write-my-thesis",
             "/buy-college-papers",

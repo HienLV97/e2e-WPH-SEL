@@ -10,7 +10,7 @@ public class firstClass extends Init {
     @Test
     public void firstMethod() throws InterruptedException {
         driver.navigate().to(Routers.SIGN_UP);
-        Constants Constants = new Constants(driver);
+        Constants Constants = new Constants();
         WebElement emailTextbox = Constants.getPlaceholder("Email");
         emailTextbox.sendKeys(Constants.emailAccount);
         WebElement passTextbox = Constants.getPlaceholder("Password");

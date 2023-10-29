@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SignIn {
     WebDriver driver = new FirefoxDriver();
-    Constants Constants = new Constants(driver);
+    Constants Constants = new Constants();
     @BeforeSuite
     public void beforeSuite(){
 

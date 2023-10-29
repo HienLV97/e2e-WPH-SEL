@@ -16,7 +16,7 @@ public class Order {
 //    public static String testURL = "https://demos.jquerymobile.com/1.4.5/checkboxradio-radio/";
 
     public static void main(String[] args) throws InterruptedException {
-        Constants Constants = new Constants(driver);
+        Constants Constants = new Constants();
 //        driver.navigate().to(testURL);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(Routers.SIGN_IN);

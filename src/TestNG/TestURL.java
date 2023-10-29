@@ -1,37 +1,43 @@
 package TestNG;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import Initialization.Init;
+import ScreenSetup.SetupScreenOnWindown;
 import Support.Constants;
 import Support.Routers;
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+import org.openqa.selenium.JavascriptExecutor;
 import static Support.Routers.BaseURL;
+import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.fail;
 
-public class TestURL {
-    public static void main(String[] args) {
-        // Thiết lập đường dẫn đến ChromeDriver (phải tải về và cài đặt trước)
-//        System.setProperty("webdriver.chrome.driver", "đường_dẫn_đến_chromedriver.exe");
+public class TestURL extends Init {
+    Support.Routers Routers = new Routers();
+    Constants Constants = new Constants();
 
-        // Khởi tạo trình duyệt (ở đây sử dụng Chrome)
-        WebDriver driver = new ChromeDriver();
-        Routers Routers = new Routers();
-        for (int i = 0; i < Routers.serviceLink.length; i++) {
-            String url = BaseURL + Routers.serviceLink[i];
-            driver.get(url);
-            String pageSource = driver.getPageSource();
-            if (pageSource.contains("url\":\""+url)) {
+    @Test
+    public void Production() {
+        String url = "https://live10.cakhia22.live/truc-tiep/653c87db7c18e529f9cb52f7.html";
+        driver.navigate().to(url);
+//        WebElement nhaDai = driver.findElement(By.xpath("//body/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[8]"));
+        boolean foundElement = false;
+        while (!foundElement) {
+            try {
+//                WebElement nhaDai = driver.findElement(By.xpath("//*[contains(text(),'Nhà Đài')]"));
+                WebElement nhaDai  = Constants.getText("Nhà Đài");
+//                WebElement nhaDai = driver.findElement(By.xpath("//body/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[8]"));
+//                WebElement nhaDai = driver.findElement(By.linkText(" Nhà Đài"));
+                // Nếu phần tử được tìm thấy, thực hiện các hành động tương ứng ở đây
+//                WebElement nhaDai  = Constants.getText(" Nhà Đài");
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nhaDai);
 
-                System.out.println("url\":\"" + BaseURL + Routers.serviceLink[i]);
-                System.out.println("Chuỗi đã được tìm thấy trong mã nguồn HTML.");
-            } else {
-                System.out.println("url\":\"" + BaseURL + Routers.serviceLink[i]);
-                System.out.println("Chuỗi không tồn tại trong mã nguồn HTML.");
+                nhaDai.click(); // Ví dụ: Click vào nút "Next"
+                foundElement = true; // Đánh dấu rằng phần tử đã được tìm thấy
+            } catch (org.openqa.selenium.NoSuchElementException e) {
+                // Nếu không tìm thấy phần tử, tiến hành reload trang
+                driver.navigate().refresh();
             }
         }
-
-
-        // Đóng trình duyệt sau khi kiểm tra
-        driver.quit();
     }
 }

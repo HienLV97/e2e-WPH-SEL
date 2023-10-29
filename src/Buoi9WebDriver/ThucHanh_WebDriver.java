@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class ThucHanh_WebDriver {
     public static void main(String[] args) {
         WebDriver driver = new FirefoxDriver();
-        Constants Constants = new Constants(driver);
+        Constants Constants = new Constants();
         String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 //        String URL = "https://writersperhour.dev/order";
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

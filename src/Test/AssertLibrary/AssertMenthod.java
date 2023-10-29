@@ -18,7 +18,7 @@ public class AssertMenthod extends Init {
     @Test
     public void Start() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        Constants Constants = new Constants(driver);
+        Constants Constants = new Constants();
         driver.navigate().to(Routers.SIGN_IN);
         WebElement emailTextbox = Constants.getPlaceholder("Email");
         emailTextbox.sendKeys(Constants.emailAccount);
