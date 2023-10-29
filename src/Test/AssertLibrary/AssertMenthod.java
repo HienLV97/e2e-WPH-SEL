@@ -29,9 +29,12 @@ public class AssertMenthod extends Init {
         WebElement SubmitInBTN = Constants.getBtn("Yes, I understood");
         SubmitInBTN.click();
         Thread.sleep(1000);
+
         WebElement SignInBTN = Constants.getBtn("Sign in");
+
         SignInBTN.click();
         WebElement h1Tag = driver.findElement(By.className("hero__anchor"));
+
         assertEquals(h1Tag.getText(),"IB WRITING SERVICE");
         assertTrue(h1Tag.getText().contains("IB"));
 
