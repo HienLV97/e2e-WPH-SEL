@@ -48,7 +48,7 @@ public class Routers {
             "/buy-persuasive-essay",
             "/ib-internal-assessment",
             "/paper-editing-service",
-            "/write-my-paper1111",
+            "/write-my-paper",
             "/do-my-powerpoint",
             "/write-my-thesis",
             "/buy-college-papers",

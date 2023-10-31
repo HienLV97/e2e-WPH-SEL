@@ -1,14 +1,12 @@
 package TestNG;
 
 import Initialization.Init;
-import ScreenSetup.SetupScreenOnWindown;
 import Support.Constants;
 import Support.Routers;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
-import static Support.Routers.BaseURL;
+
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 

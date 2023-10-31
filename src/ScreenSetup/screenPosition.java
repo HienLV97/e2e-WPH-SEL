@@ -5,7 +5,7 @@ import org.openqa.selenium.Point;
 
 import static Initialization.Init.driver;
 
-public class SetupScreenOnWindown {
+public class screenPosition {
     public static void LeftTop() {
         int screenNumber = -1;
 
@@ -35,6 +35,15 @@ public class SetupScreenOnWindown {
         int screenWidth = 1280;
         int screenHeight = 1440;
         int windowX = 1281;
+        int windowY = 0; // Vị trí theo chiều cao không thay đổi
+        Dimension windowSize = new Dimension(screenWidth, screenHeight);
+        driver.manage().window().setPosition(new Point(windowX, windowY));
+        driver.manage().window().setSize(windowSize);
+    }
+    public static void MidRightMac() {
+        int screenWidth = 1280;
+        int screenHeight = 1440;
+        int windowX = 1440+1280;
         int windowY = 0; // Vị trí theo chiều cao không thay đổi
         Dimension windowSize = new Dimension(screenWidth, screenHeight);
         driver.manage().window().setPosition(new Point(windowX, windowY));
