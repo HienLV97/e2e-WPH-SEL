@@ -23,7 +23,7 @@ public class TestURL extends Init {
         while (!foundElement) {
             try {
 //                WebElement nhaDai = driver.findElement(By.xpath("//*[contains(text(),'Nhà Đài')]"));
-                WebElement nhaDai  = Constants.getText("Nhà Đài");
+                WebElement nhaDai = Constants.getText("Nhà Đài");
 //                WebElement nhaDai = driver.findElement(By.xpath("//body/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[8]"));
 //                WebElement nhaDai = driver.findElement(By.linkText(" Nhà Đài"));
                 // Nếu phần tử được tìm thấy, thực hiện các hành động tương ứng ở đây

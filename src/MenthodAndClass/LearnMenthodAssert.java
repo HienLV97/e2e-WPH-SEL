@@ -19,7 +19,7 @@
 
 
  */
-package Buoi11;
+package MenthodAndClass;
 
 public class LearnMenthodAssert {
 
