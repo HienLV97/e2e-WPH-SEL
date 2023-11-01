@@ -20,8 +20,8 @@
 
  */
 package MenthodAndClass;
-
-public class LearnMenthodAssert {
-
-
-}
+//
+//public class LearnMenthodAssert {
+//
+//
+//}
