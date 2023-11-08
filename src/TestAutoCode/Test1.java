@@ -240,7 +240,6 @@ public class Test1 extends Init {
                 "https://writersperhour.com/blog/how-to-write-lab-report-introduction",
                 "https://writersperhour.com/blog/tips-how-to-write-ib-extended-essay",
                 "https://writersperhour.com/blog/steps-writing-rhetorical-analysis-essay-effectively"
-
         };
         for (int i = 0; i < URL1.length; i++) {
             String url = URL1[i];
@@ -258,12 +257,5 @@ public class Test1 extends Init {
                     System.out.println(url);
                 }
             }
-//            else {
-//                System.out.println("URL bị lỗi 404 cũ");
-//                System.out.println(url);
-//            }
         }
-//        driver.navigate().to(URL);
     }
-}
-
