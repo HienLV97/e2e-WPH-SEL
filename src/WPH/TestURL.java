@@ -21,6 +21,8 @@ public class TestURL extends Init {
             System.out.println(url);
             String containsURL = "url\":\"" + url;
             assertTrue(pageSource.contains(containsURL));
+            String canonical = "rel=\"canonical\" href=\"" + url;
+            assertTrue(pageSource.contains(canonical));
         }
     }
 
@@ -32,7 +34,9 @@ public class TestURL extends Init {
             String pageSource = driver.getPageSource();
             System.out.println(url);
             String containsURL = "url\":\"" + url;
-           assertTrue(pageSource.contains(containsURL));
+            assertTrue(pageSource.contains(containsURL));
+            String canonical = "rel=\"canonical\" href=\"" + url;
+            assertTrue(pageSource.contains(canonical));
         }
     }
 
@@ -44,7 +48,9 @@ public class TestURL extends Init {
             String pageSource = driver.getPageSource();
             System.out.println(url);
             String containsURL = "url\":\"" + url;
-           assertTrue(pageSource.contains(containsURL));
+            assertTrue(pageSource.contains(containsURL));
+            String canonical = "rel=\"canonical\" href=\"" + url;
+            assertTrue(pageSource.contains(canonical));
         }
     }
 
@@ -56,7 +62,9 @@ public class TestURL extends Init {
             String pageSource = driver.getPageSource();
             System.out.println(url);
             String containsURL = "url\":\"" + url;
-           assertTrue(pageSource.contains(containsURL));
+            assertTrue(pageSource.contains(containsURL));
+            String canonical = "rel=\"canonical\" href=\"" + url;
+            assertTrue(pageSource.contains(canonical));
         }
     }
 }
