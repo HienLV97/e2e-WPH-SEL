@@ -14,7 +14,8 @@ public class Constants {
 
     public String emailAccount = "kamoratest1@g.c";
     public String passAccount = "iamafriend";
-
+    public String YetiCMS = "https://yeti-cms.dev/api";
+    public String YetiCMSToken = "2b0c615afb1b72cf093a5fa6d48c7ef1";
     public WebElement getPlaceholder(String value) {
         return driver.findElement(By.xpath("//input[contains(@placeholder, '" + value + "')]"));
     }

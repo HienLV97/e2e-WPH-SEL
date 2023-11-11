@@ -1,0 +1,36 @@
+{
+  "data": {
+    "categories": {
+      "data": [
+        {
+          "meta_description": "All the tips and best practices you need to improve academic essay writing and submit high-scoring papers.",
+          "meta_title": "Writing Advice - Writers Per Hour",
+          "id": "18",
+          "title": "Writing Advice",
+          "url": "writing-advice"
+        },
+        {
+          "meta_description": "Get inspired by a curated list of creative ideas and examples to kickstart your college and high school essays.",
+          "meta_title": "Writing Inspiration - Writers Per Hour",
+          "id": "19",
+          "title": "Writing Inspiration",
+          "url": "writing-inspiration"
+        },
+        {
+          "meta_description": "Learn how to deal with life as a fresher graduate from university and everything you need to know about students' routines.",
+          "meta_title": "Student Life - Writers Per Hour",
+          "id": "20",
+          "title": "Student Life",
+          "url": "student-life"
+        },
+        {
+          "meta_description": "Practical internship and career advice for students preparing for the next stage in their academic lives.",
+          "meta_title": "Internships & Careers - Writers Per Hour",
+          "id": "21",
+          "title": "Internships & Careers",
+          "url": "internships-careers"
+        }
+      ]
+    }
+  }
+}

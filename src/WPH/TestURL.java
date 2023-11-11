@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.apache.commons.text.StringEscapeUtils;
 
@@ -126,16 +127,65 @@ public class TestURL extends Init {
     }
 
     @Test
-    public void catelogy() {
+    public void Catelogy() {
         for (int i = 0; i < Routers.catelogy.length; i++) {
             String url = Support.Routers.BLOG_CATEGORY + Routers.catelogy[i];
             driver.get(url);
             String pageSource = driver.getPageSource();
             System.out.println(url);
             String containsURL = "url\":\"" + url;
+            //Canonical
             assertTrue(pageSource.contains(containsURL));
+
             String canonical = "rel=\"canonical\" href=\"" + url;
-            assertTrue(pageSource.contains(canonical));
+            System.out.println("Pages: " +i + "/" + Routers.catelogy.length);
+            System.out.println("canonical:   " + canonical);
+
+            String desiredUrl = Routers.catelogy[i]; // URL mà bạn  muốn tìm kiếm
+            System.out.println("desiredUrl:   " + desiredUrl);
+
+            String filePath = "Test-output/FileJson/Categories.json";
+            try (FileReader fileReader = new FileReader(filePath)) {
+                JSONTokener jsonTokener = new JSONTokener(fileReader);
+                JSONObject jsonObject1 = new JSONObject(jsonTokener);
+                JSONObject articlesData = jsonObject1.getJSONObject("data").getJSONObject("categories");
+                JSONArray dataArray = articlesData.getJSONArray("data");
+
+                for (int i1 = 0; i1 < dataArray.length(); i1++) {
+                    JSONObject item = dataArray.getJSONObject(i1);
+                    String urlJsonFix = item.getString("url");
+                    String urlJson = "/" + urlJsonFix;
+                    System.out.println(urlJson);
+                    System.out.println(desiredUrl);
+                    if (urlJson.equals(desiredUrl)) {
+                        // Tìm thấy URL mà bạn muốn
+
+//                        String title = item.getString("title");
+//                        String unescapedString = StringEscapeUtils.unescapeJava(title).trim();
+//
+//                        WebElement h1Tag = driver.findElement(By.xpath("//h1"));
+//                        String h1Text = h1Tag.getText();
+//                        System.out.println("escapedString:  " + unescapedString);
+//
+//                        //h1 tag
+//                        assertTrue(h1Text.contains(unescapedString));
+
+                        String metaData = item.getString("meta_title");
+                        String actualMetaTitle = driver.getTitle();
+
+                        System.out.println("Meta_title:  " + metaData);
+                        System.out.println("actualMetaTitle:  " + actualMetaTitle);
+                        //titleTag
+                        assertTrue(actualMetaTitle.equals(metaData));
+
+                        System.out.println("Successfully");
+                        break; // Nếu bạn muốn dừng khi tìm thấy
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println("done");
         }
     }
 
@@ -177,18 +227,15 @@ public class TestURL extends Init {
                     if (urlJson.equals(desiredUrl)) {
                         // Tìm thấy URL mà bạn muốn
                         String title = item.getString("title");
-                        String escapedString = StringEscapeUtils.escapeHtml4(title);
-                        String h1 = "h1 class=\"post__title\">" + escapedString;
-                        System.out.println("escapedString:" + h1);
+                        String unescapedString = StringEscapeUtils.unescapeJava(title);
 
-                        assertTrue(pageSource.contains(h1));
+                        WebElement h1Tag = driver.findElement(By.xpath("//h1"));
+                        String h1Text = h1Tag.getText();
+                        System.out.println("escapedString:  " + unescapedString);
+                        assertTrue(h1Text.contains(unescapedString));
 
                         String metaData = item.getString("meta_title");
-//                        String decodedMetaData = StringEscapeUtils.unescapeHtml4(metaData);
-//                        String escapedString = StringEscapeUtils.escapeHtml4(metaData);
-//                        WebElement metaTitleElement = driver.findElement(By.tagName("title"));
                         String actualMetaTitle = driver.getTitle();
-
 
                         System.out.println("Meta_title:  " + metaData);
                         System.out.println("actualMetaTitle:  " + actualMetaTitle);
