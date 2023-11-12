@@ -1,0 +1,32 @@
+{
+  "data": {
+    "authors": {
+      "data": [
+        {
+          "meta_description": "Adela Belin is a regular contributor at Writers Per Hour. She writes about motivation, mental health, personal development, and everything in between.",
+          "meta_title": "Adela Belin: Author and Content Manager at Writers Per Hour",
+          "id": "1",
+          "url": "/abelin"
+        },
+        {
+          "meta_description": "Stefani is a professional writer and blogger at Writers Per Hour. She primarily contributes articles about career and leadership.",
+          "meta_title": "Stefani Holloway: Regular Contributor at Writers Per Hour",
+          "id": "2",
+          "url": "/stefani-holloway"
+        },
+        {
+          "meta_description": "Expert essayist specializing in MBA papers. Delivering insightful, meticulously-researched essays to drive academic success. Elevate your MBA journey.",
+          "meta_title": "Emma: Contributor and Academic Writer Writers Per Hour",
+          "id": "3",
+          "url": "/emmaw"
+        },
+        {
+          "meta_description": "Meet our seasoned contributor on our blog, who is passionate about education. With a wealth of experience, Brian brings his expertise to numerous blogs.",
+          "meta_title": "Brian Hughes: Seasoned Contributor at Writers Per Hour",
+          "id": "4",
+          "url": "/bhughes"
+        }
+      ]
+    }
+  }
+}

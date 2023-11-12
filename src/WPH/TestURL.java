@@ -71,7 +71,7 @@ public class TestURL extends Init {
                         System.out.println("Meta_title:  " + escapedString);
                         assertTrue(pageSource.contains(escapedString));
                         System.out.println("Successfully");
-                        break; // Nếu bạn muốn dừng khi tìm thấy
+                        break;
                     }
                 }
             } catch (Exception e) {
@@ -88,7 +88,6 @@ public class TestURL extends Init {
             driver.get(url);
             String pageSource = driver.getPageSource();
 
-
             String containsURL = "url\":\"" + url;
             System.out.println("url:  " + url);
             assertTrue(pageSource.contains(containsURL));
@@ -97,27 +96,30 @@ public class TestURL extends Init {
             System.out.println("canonical:   " + canonical);
             assertTrue(pageSource.contains(canonical));
 
-            String filePath = "test-output/Articles.json";
+            String filePath = "test-output/FileJson/Authors.json";
             try (FileReader fileReader = new FileReader(filePath)) {
                 JSONTokener jsonTokener = new JSONTokener(fileReader);
                 JSONObject jsonObject1 = new JSONObject(jsonTokener);
-                JSONObject articlesData = jsonObject1.getJSONObject("data").getJSONObject("articles");
+                JSONObject articlesData = jsonObject1.getJSONObject("data").getJSONObject("authors");
                 JSONArray dataArray = articlesData.getJSONArray("data");
 
-                String desiredUrl = Routers.blogAuthor[i]; // URL mà bạn  muốn tìm kiếm
+                String desiredUrl = Routers.blogAuthor[i];
 
                 for (int i1 = 0; i < dataArray.length(); i1++) {
                     JSONObject item = dataArray.getJSONObject(i);
                     String urlJson = item.getString("url");
-
                     if (urlJson.equals(desiredUrl)) {
-                        // Tìm thấy URL mà bạn muốn
-                        JSONObject data = item.getJSONObject("data");
-                        String anchor = data.getString("anchor");
-                        String h1 = "h1 class=\"ttl\">" + anchor;
-                        System.out.println("h1:  " + h1);
-                        assertTrue(pageSource.contains(h1));
-                        break; // Nếu bạn muốn dừng khi tìm thấy
+
+                        String metaData = item.getString("meta_title");
+                        String actualMetaTitle = driver.getTitle();
+
+                        System.out.println("Meta_title:  " + metaData);
+                        System.out.println("actualMetaTitle:  " + actualMetaTitle);
+                        //titleTag
+                        assertTrue(actualMetaTitle.equals(metaData));
+
+                        System.out.println("Successfully");
+                        break;
                     }
                 }
             } catch (Exception e) {
@@ -138,7 +140,7 @@ public class TestURL extends Init {
             assertTrue(pageSource.contains(containsURL));
 
             String canonical = "rel=\"canonical\" href=\"" + url;
-            System.out.println("Pages: " +i + "/" + Routers.catelogy.length);
+            System.out.println("Pages: " + i + "/" + Routers.catelogy.length);
             System.out.println("canonical:   " + canonical);
 
             String desiredUrl = Routers.catelogy[i]; // URL mà bạn  muốn tìm kiếm
@@ -179,7 +181,7 @@ public class TestURL extends Init {
                         assertTrue(actualMetaTitle.equals(metaData));
 
                         System.out.println("Successfully");
-                        break; // Nếu bạn muốn dừng khi tìm thấy
+                        break;
                     }
                 }
             } catch (Exception e) {
@@ -242,7 +244,7 @@ public class TestURL extends Init {
 
                         assertTrue(actualMetaTitle.equals(metaData));
                         System.out.println("Successfully");
-                        break; // Nếu bạn muốn dừng khi tìm thấy
+                        break;
                     }
                 }
             } catch (Exception e) {

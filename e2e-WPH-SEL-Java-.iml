@@ -98,42 +98,31 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="graphql-java-21.3" level="application" />
-    <orderEntry type="library" name="graphql-java-21.3" level="project" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/okhttp-3.14.9.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/okio-3.6.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="okio-1.16.0" level="application" />
-    <orderEntry type="library" name="okhttp-3.14.9" level="application" />
+    <orderEntry type="library" exported="" name="okhttp-3.14.9" level="application" />
     <orderEntry type="library" name="json-20231013" level="application" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.12.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/json-20231013.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="commons-lang3-3.12.0" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/commons-text-1.10.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-lang3-3.12.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/commons-text-1.10.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
