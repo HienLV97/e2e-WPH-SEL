@@ -20,6 +20,7 @@ public class Articles {
                 "id url meta_title meta_description  " +
                 "data {" +
                 "anchor" +
+                "      perks_title" +
                 "} " +
                 "}" +
                 "}" +

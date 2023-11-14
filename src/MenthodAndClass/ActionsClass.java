@@ -15,13 +15,14 @@ public class ActionsClass extends Init {
 
         // specify the locator of the search box
         WebElement element = driver.findElement(By.xpath("//textarea[@id='APjFqb']"));
-
-
         // pass the product name that has to be searched in the website
-        action.sendKeys(element, "Anh Tester");
-//                .build().perform();
-        action.sendKeys(Keys.ENTER);
-//        .build().perform();
-
+        action.sendKeys(element, "Anh Tester")
+                .build().perform();
+        action.sendKeys(Keys.ENTER)
+                .build().perform();
+        driver.findElement(By.xpath("//a[@href='https://anhtester.com/']//h3[@class='LC20lb MBeuO DKV0Md'][normalize-space()='Anh Tester Automation Testing']"))
+                .click();
+        WebElement title = driver.findElement(By.xpath("//div[@class='col-lg-7']//h2[@class='section__title'][contains(text(),'Anh Tester')]"));
+        action.doubleClick(title).build().perform();
     }
 }

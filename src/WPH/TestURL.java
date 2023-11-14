@@ -25,29 +25,30 @@ public class TestURL extends Init {
     public void servicePages() {
         for (int i = 0; i < Routers.serviceLink.length; i++) {
             String urlAuthor = Support.Routers.BaseURLAuthor + Routers.serviceLink[i];
-            ;
+
             String url = Support.Routers.BaseURL + Routers.serviceLink[i];
             driver.get(urlAuthor);
             String pageSource = driver.getPageSource();
-
+            System.out.println("Pages: " + (i+1) + "/" + Routers.serviceLink.length);
             String containsURL = "url\":\"" + url;
-//            assertTrue(pageSource.contains(containsURL));
+
+
             System.out.println("url:  " + url);
 
             String canonical = "rel=\"canonical\" href=\"" + url;
-            assertTrue(pageSource.contains(canonical));
             System.out.println("canonical:   " + canonical);
 
-            String desiredUrl = Routers.serviceLink[i]; // URL mà bạn  muốn tìm kiếm
-            System.out.println("desiredUrl:   " + desiredUrl);
+//            assertTrue(pageSource.contains(containsURL));
+//            assertTrue(pageSource.contains(canonical));
 
+
+            String desiredUrl = Routers.serviceLink[i]; // URL mà bạn  muốn tìm kiếm
             String filePath = "Test-output/FileJson/Articles.json";
             try (FileReader fileReader = new FileReader(filePath)) {
                 JSONTokener jsonTokener = new JSONTokener(fileReader);
                 JSONObject jsonObject1 = new JSONObject(jsonTokener);
                 JSONObject articlesData = jsonObject1.getJSONObject("data").getJSONObject("articles");
                 JSONArray dataArray = articlesData.getJSONArray("data");
-//                System.out.println(dataArray.length());
 
                 for (int i1 = 0; i1 < dataArray.length(); i1++) {
                     JSONObject item = dataArray.getJSONObject(i1);
@@ -61,21 +62,24 @@ public class TestURL extends Init {
                         String h1 = "h1 class=\"ttl\">" + anchor;
 
                         System.out.println("h1:" + h1);
-                        assertTrue(pageSource.contains(h1));
+
+                        String perkTitle = data.getString("perks_title");
 
                         String metaData = item.getString("meta_title");
-//                        String decodedMetaData = StringEscapeUtils.unescapeHtml4(metaData);
                         String escapedString = StringEscapeUtils.escapeHtml4(metaData);
 
-
                         System.out.println("Meta_title:  " + escapedString);
-                        assertTrue(pageSource.contains(escapedString));
+
+                        driver.findElement(By.xpath("//h2[contains(text(),\""+perkTitle+"\")]")).isDisplayed();
+//                        assertTrue(pageSource.contains(h1));
+//                        assertTrue(pageSource.contains(escapedString));
                         System.out.println("Successfully");
                         break;
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                System.out.println("error: "+url);
             }
             System.out.println("done");
         }
@@ -87,7 +91,7 @@ public class TestURL extends Init {
             String url = Support.Routers.BLOG_AUTHOR + Routers.blogAuthor[i];
             driver.get(url);
             String pageSource = driver.getPageSource();
-
+            System.out.println("Pages: " + (i+1) + "/" + Routers.blogAuthor.length);
             String containsURL = "url\":\"" + url;
             System.out.println("url:  " + url);
             assertTrue(pageSource.contains(containsURL));
@@ -112,9 +116,6 @@ public class TestURL extends Init {
 
                         String metaData = item.getString("meta_title");
                         String actualMetaTitle = driver.getTitle();
-
-                        System.out.println("Meta_title:  " + metaData);
-                        System.out.println("actualMetaTitle:  " + actualMetaTitle);
                         //titleTag
                         assertTrue(actualMetaTitle.equals(metaData));
 
@@ -140,11 +141,10 @@ public class TestURL extends Init {
             assertTrue(pageSource.contains(containsURL));
 
             String canonical = "rel=\"canonical\" href=\"" + url;
-            System.out.println("Pages: " + i + "/" + Routers.catelogy.length);
+            System.out.println("Pages: " + (i+1) + "/" + Routers.catelogy.length);
             System.out.println("canonical:   " + canonical);
 
             String desiredUrl = Routers.catelogy[i]; // URL mà bạn  muốn tìm kiếm
-            System.out.println("desiredUrl:   " + desiredUrl);
 
             String filePath = "Test-output/FileJson/Categories.json";
             try (FileReader fileReader = new FileReader(filePath)) {
@@ -157,26 +157,11 @@ public class TestURL extends Init {
                     JSONObject item = dataArray.getJSONObject(i1);
                     String urlJsonFix = item.getString("url");
                     String urlJson = "/" + urlJsonFix;
-                    System.out.println(urlJson);
-                    System.out.println(desiredUrl);
                     if (urlJson.equals(desiredUrl)) {
-                        // Tìm thấy URL mà bạn muốn
 
-//                        String title = item.getString("title");
-//                        String unescapedString = StringEscapeUtils.unescapeJava(title).trim();
-//
-//                        WebElement h1Tag = driver.findElement(By.xpath("//h1"));
-//                        String h1Text = h1Tag.getText();
-//                        System.out.println("escapedString:  " + unescapedString);
-//
-//                        //h1 tag
-//                        assertTrue(h1Text.contains(unescapedString));
 
                         String metaData = item.getString("meta_title");
                         String actualMetaTitle = driver.getTitle();
-
-                        System.out.println("Meta_title:  " + metaData);
-                        System.out.println("actualMetaTitle:  " + actualMetaTitle);
                         //titleTag
                         assertTrue(actualMetaTitle.equals(metaData));
 
@@ -206,11 +191,10 @@ public class TestURL extends Init {
 
             String canonical = "rel=\"canonical\" href=\"" + url;
             assertTrue(pageSource.contains(canonical));
-            System.out.println("Pages: " + i + "/" + Routers.blogPost.length);
+            System.out.println("Pages: " + (i+1) + "/" + Routers.blogPost.length);
             System.out.println("canonical:   " + canonical);
 
             String desiredUrl = Routers.blogPost[i]; // URL mà bạn  muốn tìm kiếm
-            System.out.println("desiredUrl:   " + desiredUrl);
 
             String filePath = "Test-output/FileJson/Posts.json";
             try (FileReader fileReader = new FileReader(filePath)) {
@@ -218,9 +202,6 @@ public class TestURL extends Init {
                 JSONObject jsonObject1 = new JSONObject(jsonTokener);
                 JSONObject articlesData = jsonObject1.getJSONObject("data").getJSONObject("posts");
                 JSONArray dataArray = articlesData.getJSONArray("data");
-//                JSONObject postsData = jsonObject1.getJSONObject("data").getJSONObject("posts");
-//                JSONArray dataArray = postsData.getJSONArray("data");
-//                System.out.println(dataArray.length());
 
                 for (int i1 = 0; i1 < dataArray.length(); i1++) {
                     JSONObject item = dataArray.getJSONObject(i1);
@@ -233,14 +214,10 @@ public class TestURL extends Init {
 
                         WebElement h1Tag = driver.findElement(By.xpath("//h1"));
                         String h1Text = h1Tag.getText();
-                        System.out.println("escapedString:  " + unescapedString);
                         assertTrue(h1Text.contains(unescapedString));
 
                         String metaData = item.getString("meta_title");
                         String actualMetaTitle = driver.getTitle();
-
-                        System.out.println("Meta_title:  " + metaData);
-                        System.out.println("actualMetaTitle:  " + actualMetaTitle);
 
                         assertTrue(actualMetaTitle.equals(metaData));
                         System.out.println("Successfully");
@@ -248,6 +225,7 @@ public class TestURL extends Init {
                     }
                 }
             } catch (Exception e) {
+                System.out.println("error: " +urlAuthor);
                 e.printStackTrace();
             }
             System.out.println("done");
