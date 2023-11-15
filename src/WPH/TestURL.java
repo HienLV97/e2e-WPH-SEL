@@ -15,14 +15,14 @@ import static org.testng.Assert.assertTrue;
 
 import org.testng.asserts.SoftAssert;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-
 
 public class TestURL extends Init {
     Routers Routers = new Routers();
 
     @Test
-    public void servicePages() {
+    public void servicePages() throws FileNotFoundException {
         for (int i = 0; i < Routers.serviceLink.length; i++) {
             String urlAuthor = Support.Routers.BaseURLAuthor + Routers.serviceLink[i];
 
@@ -38,13 +38,14 @@ public class TestURL extends Init {
             String canonical = "rel=\"canonical\" href=\"" + url;
             System.out.println("canonical:   " + canonical);
 
-//            assertTrue(pageSource.contains(containsURL));
-//            assertTrue(pageSource.contains(canonical));
+            assertTrue(pageSource.contains(containsURL));
+            assertTrue(pageSource.contains(canonical));
 
 
             String desiredUrl = Routers.serviceLink[i]; // URL mà bạn  muốn tìm kiếm
             String filePath = "Test-output/FileJson/Articles.json";
-            try (FileReader fileReader = new FileReader(filePath)) {
+
+                FileReader fileReader = new FileReader(filePath);
                 JSONTokener jsonTokener = new JSONTokener(fileReader);
                 JSONObject jsonObject1 = new JSONObject(jsonTokener);
                 JSONObject articlesData = jsonObject1.getJSONObject("data").getJSONObject("articles");
@@ -71,16 +72,13 @@ public class TestURL extends Init {
                         System.out.println("Meta_title:  " + escapedString);
 
                         driver.findElement(By.xpath("//h2[contains(text(),\""+perkTitle+"\")]")).isDisplayed();
-//                        assertTrue(pageSource.contains(h1));
-//                        assertTrue(pageSource.contains(escapedString));
+                        assertTrue(pageSource.contains(h1));
+                        assertTrue(pageSource.contains(escapedString));
                         System.out.println("Successfully");
                         break;
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("error: "+url);
-            }
+
             System.out.println("done");
         }
     }

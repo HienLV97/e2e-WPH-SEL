@@ -25,6 +25,7 @@ public class Init {
 
     @AfterTest
     public static void TearDown() throws Exception {
+        Thread.sleep(5000);
 //        driver.quit();
     }
 }
