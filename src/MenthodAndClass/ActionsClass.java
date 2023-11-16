@@ -45,33 +45,22 @@ public class ActionsClass extends Init {
     }
 
     @Test(enabled = true)
-    public void Robot() throws AWTException, InterruptedException {
-
+    public void Robot() throws AWTException {
+        Actions action = new Actions(driver);
         driver.get("https://anhtester.com");
 
-        Thread.sleep(5000);
+        sleep(5);
         WebElement inputCourseElement = driver.findElement(By.name("key"));
         inputCourseElement.click();
         inputCourseElement.sendKeys("a");
+        action.keyDown(inputCourseElement, Keys.SHIFT).sendKeys("hihi").build().perform();
 
         Robot robot = new Robot();
-        Thread.sleep(5000);
-//        Robot robot = new Robot();
-////        robot.keyPress(KeyEvent.VK_TAB);
-//        Thread.sleep(1000);
-//        robot.keyPress(KeyEvent.VK_TAB);
-//        Thread.sleep(1000);
-//        robot.keyPress(KeyEvent.VK_TAB);
-//        Thread.sleep(1000);
-//        robot.keyPress(KeyEvent.VK_TAB);
-//        Thread.sleep(1000);
-//        robot.keyPress(KeyEvent.VK_TAB);
-////        robot.keyPress(KeyEvent.VK_TAB);
-//        Thread.sleep(1000);
-//        robot.keyPress(KeyEvent.VK_A);
+        sleep(5);
 
         // Nhập từ khóa selenium
         inputCourseElement.click();
+        sleep(2);
         robot.keyPress(KeyEvent.VK_S);
         robot.keyPress(KeyEvent.VK_E);
         robot.keyPress(KeyEvent.VK_L);
@@ -80,9 +69,14 @@ public class ActionsClass extends Init {
         robot.keyPress(KeyEvent.VK_I);
         robot.keyPress(KeyEvent.VK_U);
         robot.keyRelease(KeyEvent.VK_M);
-        Thread.sleep(1000);
+        sleep(1);
         robot.keyPress(KeyEvent.VK_ENTER);
-
-        Thread.sleep(2000);
+        sleep(2);
+        action.keyDown(Keys.CONTROL)
+                .sendKeys("p")
+                .keyUp(Keys.CONTROL)
+                .keyUp("p")
+                .build().perform();
+        sleep(2);
     }
 }

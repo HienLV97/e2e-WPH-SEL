@@ -8,9 +8,9 @@ import static Initialization.Init.*;
 
 public class Handle_Checkbox {
 //     Init  init = new Init();
-    public static void main(String[] args) throws Exception {
-        Setup();
-        driver.navigate().to("https://www.seleniumeasy.com/tags/checkboxes");
-        TearDown();
-    }
+//    public static void main(String[] args) throws Exception {
+//        Setup();
+//        driver.navigate().to("https://www.seleniumeasy.com/tags/checkboxes");
+//        TearDown();
+//    }
 }
