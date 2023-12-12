@@ -32,7 +32,6 @@ public class TestURL extends Init {
             System.out.println("Pages: " + (i+1) + "/" + Routers.serviceLink.length);
             String containsURL = "url\":\"" + url;
 
-
             System.out.println("url:  " + url);
 
             String canonical = "rel=\"canonical\" href=\"" + url;

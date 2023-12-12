@@ -30,7 +30,7 @@ public class Init {
         } catch (InterruptedException e){
             throw new RuntimeException(e);
         }
-        driver.quit();
+//        driver.quit();
     }
     public void sleep( double second){
         try{
